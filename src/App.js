@@ -1,22 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const quoteURL = 'https://stoic-quotes.com/api/quote'
+  const [quote, setQuote] = useState({})
+
+  useEffect(()=>{
+    fetchQuote();
+  }, [])
+
+  const fetchQuote = () => {
+    fetch(quoteURL)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setQuote({
+          name: data.author,
+          content: data.text
+        })
+      })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div id='quote-box'>
+          <p>
+            {quote.content}
+          </p>
+          <p>
+            {quote.name}
+          </p>
+        </div>
       </header>
     </div>
   );
