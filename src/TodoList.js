@@ -6,11 +6,11 @@ function TodoList() {
     const [TodoItems, setTodoItems] = useState(
         [{
             id: 0,
-            name: "handla mat"
+            name: "Shop food"
         },
         {
             id: 1,
-            name: "städa"
+            name: "Laundry"
         }]);
 
     const [input, setInput] = useState("")
@@ -25,7 +25,7 @@ function TodoList() {
         }
 
         const num = TodoItems.length
-        //console.log(num)
+
         const newToDo =
         {
             id: num,
@@ -45,7 +45,7 @@ function TodoList() {
         <div id="ToDoList">
             <form id="ToDoList">
                 <p>
-                    ToDoList
+                    Things to do
                 </p>
 
                 <div>
@@ -53,11 +53,9 @@ function TodoList() {
                         value={input}
                         onChange={(event) => setInput(event.target.value)}>
                     </input>
-                </div>
-
-                <div>
                     <button type="" onClick={handleSubmit}>Add</button>
                 </div>
+
                 <div className="List">
                     <div className="ListItem">
                         {TodoItems.map((item) =>
@@ -65,8 +63,6 @@ function TodoList() {
                     </div>
                 </div>
             </form>
-
-
         </div>
 
     );
