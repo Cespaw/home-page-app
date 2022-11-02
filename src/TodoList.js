@@ -20,6 +20,10 @@ function TodoList() {
         event.preventDefault();
         console.log("clicked add")
 
+        if (input === "") {
+            return;
+        }
+
         const num = TodoItems.length
         //console.log(num)
         const newToDo =
@@ -54,16 +58,15 @@ function TodoList() {
                 <div>
                     <button type="" onClick={handleSubmit}>Add</button>
                 </div>
-            </form>
-
-            <div>
-                <ul>
+                <div className="List">
                     <div className="ListItem">
                         {TodoItems.map((item) =>
                             <TodoItem key={item.id} props={item} handleDelete={handleDelete} ToDoItems={TodoItems} />)}
                     </div>
-                </ul>
-            </div>
+                </div>
+            </form>
+
+
         </div>
 
     );

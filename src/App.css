@@ -19,13 +19,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
 }
 
+.List {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .ListItem {
-  background-color: #61dafb;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .App-header {
