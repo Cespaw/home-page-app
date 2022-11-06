@@ -10,6 +10,7 @@ function TodoList() {
     const [TodoItems, setTodoItems] = useState([]);
 
     const getTodos = JSON.parse(localStorage.getItem("todos"));
+
     useEffect(() => {
         if (Object.keys(getTodos).length === 0) {
             console.log("is null")
@@ -18,10 +19,10 @@ function TodoList() {
             console.log("is not null")
             setTodoItems(getTodos);
         }
+
     }, [])
 
     const [input, setInput] = useState("")
-
     const handleSubmit = event => {
         event.preventDefault();
         console.log("clicked add")
@@ -51,9 +52,26 @@ function TodoList() {
         localStorage.setItem("todos", JSON.stringify(alteredList));
     }
 
-    const handleEdit = event => {
-        event.preventDefault()
-        console.log("clicked edit")
+    function handleEdit(id, input) {
+        console.log("clicked edit for " + id)
+
+        if (input === ""){
+            return;
+        }
+
+        let data = JSON.parse(localStorage.getItem('todos'));
+        const editedData = data.map(todo => {
+            if (todo.id === id) {
+                return {
+                    ...todo,
+                    id: todo.id,
+                    name: input
+                }
+            }
+            return todo;
+        })
+        setTodoItems(editedData)
+        localStorage.setItem("todos", JSON.stringify(editedData));
     }
 
     return (
@@ -71,14 +89,14 @@ function TodoList() {
                     <button type="" onClick={handleSubmit}>Add</button>
                 </div>
 
-                {Object.keys(TodoItems).length !== 0 ?  
-                <div className="List">
-                    <div className="ListItem">
-                        {TodoItems.map((item) =>
-                            <TodoItem key={item.id} props={item} handleDelete={handleDelete} handleEdit={handleEdit} ToDoItems={TodoItems} />)}
+                {Object.keys(TodoItems).length !== 0 ?
+                    <div className="List">
+                        <div className="ListItem">
+                            {TodoItems.map((item) =>
+                                <TodoItem key={item.id} props={item} handleDelete={handleDelete} handleEdit={handleEdit} ToDoItems={TodoItems} />)}
+                        </div>
                     </div>
-                </div>
-                : <>No tasks to show!</>
+                    : <>No tasks to show!</>
                 }
 
             </form>

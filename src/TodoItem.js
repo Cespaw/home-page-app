@@ -1,11 +1,33 @@
+import { useState } from "react";
 
-function TodoItem({ props , handleDelete, handleEdit}) {
+function TodoItem({ props, handleDelete, handleEdit }) {
+
+    const [editClicked, setEditClicked] = useState(false)
+    const [input, setInput] = useState("")
+
+    function handleEditClicked(){
+        setEditClicked(!editClicked)
+    }
 
     return (
         <div className="ListItem">
-            <div>{props.name}</div>
-            <button type="" onClick={() => handleDelete(props.id)}>Delete</button>
-            <button type="" onClick={(e) => handleEdit(e, props.id)}>Edit</button>
+            <div>
+                {props.name}
+                <button type="button" onClick={() => handleEditClicked()}>Edit</button>
+
+                <button type="button" onClick={() => handleDelete(props.id)}>Delete</button>
+
+                {editClicked ? 
+                <div>
+                        <input value={input} 
+                               onChange={(event) => setInput(event.target.value)}>
+                        </input>
+                        <button type="button" onClick={(e) => handleEdit(props.id, input)}>Confirm</button>
+                        
+                </div>
+                : <></>}
+
+            </div>
         </div>
     );
 }
