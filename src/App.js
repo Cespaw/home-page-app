@@ -1,5 +1,4 @@
 import './App.css';
-import AppRouter from './AppRouter';
 import Quote from './Quote';
 import TodoList from './TodoList';
 import Home from './Home';

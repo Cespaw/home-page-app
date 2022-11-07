@@ -30,19 +30,22 @@ function Quote() {
   }
 
   return (
-    <div id='quote-box'>
+    <>
       {loading ? <p>Loading...</p>
         :
-        <div>
-          <p>
-            {quote.content}
-          </p>
-          <p>
-            {quote.name}
-          </p>
+        <div class="card" style={{width: 700}}>
+          <div class="card-header">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{quote.content}</p>
+                <footer class="blockquote-footer">{quote.name}<cite title="Source Title"></cite></footer>
+              </blockquote>
+            </div>
+          </div>
         </div>
       }
-    </div>
+    </>
+
   );
 }
 

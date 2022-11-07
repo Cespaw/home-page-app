@@ -14,13 +14,13 @@
 }
 
 .ToDoList {
-  background-color: #8aa8e0;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .List {
@@ -35,15 +35,27 @@
   justify-content: center;
 }
 
+.ListText {
+  align-items:flex-start;
+}
+
+.TodoItem {
+  display: flex;
+  
+}
+
+.TodoInput {
+  max-width: 200px;
+}
 .App-header {
-  background-color: #80858e;
+  background-color: #ffffff;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .App-link {

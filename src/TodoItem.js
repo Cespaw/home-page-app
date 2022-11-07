@@ -16,35 +16,40 @@ function TodoItem({ props, handleDelete, handleEdit }) {
     }
 
     return (
-        <div className="ListItem">
-            <div>
+        <div class="card">
+            <div class="card-body">
                 {editClicked ?
-                    <>
+                    <div class="card-body">
                         <input 
+                            
                             value={input}
                             placeholder={props.name}
                             onChange={(event) => setInput(event.target.value)}>
                         </input>
 
                         <button 
-                            type="button" 
+                            type="button"
+                            class="btn btn-primary" 
                             onClick={(e) => handleConfirmClicked(props.id, input)}>
                             Confirm
                         </button>
-                    </>
+                    </div>
                     : 
                     <>
-                        {props.name}
+                        <p class="card-text">{props.name}</p>
                         <button 
                             type="button" 
+                            class="btn btn-primary"
                             onClick={() => handleEditClicked()}>
                             Edit
                         </button>
-                    </>
+                        </>
                 }
+                
 
                 <button 
                     type="button" 
+                    class="btn btn-primary"
                     onClick={() => handleDelete(props.id)}>
                     Delete
                 </button>

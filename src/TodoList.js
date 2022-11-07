@@ -78,7 +78,7 @@ function TodoList() {
         <div id="ToDoList">
             <form id="ToDoList">
                 <p>
-                    Things to do
+                    Tasks
                 </p>
 
                 <div>
