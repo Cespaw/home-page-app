@@ -11,19 +11,21 @@ function App() {
     <BrowserRouter>
       <>
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-expand-lg bg-light">
           <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="/home">Home</a>
             </div>
-            <ul class="nav navbar-nav">
-              <li><a href="/about">About</a></li>
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
             </ul>
           </div>
         </nav>
 
         <div>
           <Routes>
+
+            <Route path="/" element={<Home/>} />
 
             <Route path="/home" element={<Home />} />
 

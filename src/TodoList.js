@@ -77,9 +77,9 @@ function TodoList() {
     return (
         <div id="ToDoList">
             <form id="ToDoList">
-                <p>
-                    Tasks
-                </p>
+                <div class="d-flex justify-content-center">
+                    My Tasks
+                </div>
 
                 <div>
                     <input placeholder="Write task here"
@@ -100,6 +100,7 @@ function TodoList() {
                 }
 
             </form>
+            
         </div>
 
     );
